@@ -68,7 +68,10 @@ export function DropdownMenu({ data, onSelect, zIndex, value }: Props) {
                 return (
                   <TouchableOpacity
                     key={key}
-                    onPress={() => onSelect(item)}
+                    onPress={() => {
+                      onSelect(item);
+                      toggleOpen();
+                    }}
                     style={styles.dropdownInput}
                   >
                     <Text>{text}</Text>
