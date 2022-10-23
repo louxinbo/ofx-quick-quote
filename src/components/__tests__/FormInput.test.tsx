@@ -19,6 +19,7 @@ describe('FormInput component', () => {
         keyboardType="default"
         value=""
         onChangeText={jest.fn()}
+        onSelect={jest.fn()}
       />
     );
     expect(screen.getByText(testLable)).toBeTruthy();
@@ -35,6 +36,8 @@ describe('FormInput component', () => {
         label={testLable}
         dropdownData="countryCode"
         onSelect={onSelect}
+        onChangeText={jest.fn()}
+        keyboardType="default"
         value={DropdownDataMap.countryCode[0]}
       />
     );
