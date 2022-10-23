@@ -20,6 +20,9 @@ or [Open this link in phone's browser](exp://exp.host/@xinbolou/ofx-quick-quote?
 ### Future work
 I avoided third party libraries to keep it minimized, but when the project grow we can consider the following libaries:
 1, redux/thunk: manage client global state
+
 2, RTK query: manage making query requests
+
 3, React navigation: complex screens and navigations
+
 4, Sentry: log system to trace errors.
