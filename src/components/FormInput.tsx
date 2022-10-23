@@ -13,31 +13,20 @@ import { useIsLandscape } from '../hooks';
 import { DropdownDataKeyType, DropdownDataType } from '../utils';
 import { DropdownMenu } from './DropdownMenu';
 
-type Props =
-  | {
-      type: 'text';
-      label: string;
-      value: string;
-      placeholder?: string;
-      isRequired?: boolean;
-      isFullLenth?: boolean;
-      onChangeText: (value: string) => void;
-      dropdownData?: DropdownDataKeyType;
-      width?: string;
-      keyboardType: KeyboardTypeOptions;
-      zIndex?: number;
-    }
-  | {
-      type: 'dropdown';
-      label: string;
-      value: DropdownDataType;
-      isRequired?: boolean;
-      isFullLenth?: boolean;
-      onSelect: (selectedItem: DropdownDataType) => void;
-      dropdownData: DropdownDataKeyType;
-      width?: string;
-      zIndex?: number;
-    };
+type Props = {
+  type: 'text' | 'dropdown';
+  label: string;
+  value: string | DropdownDataType;
+  placeholder?: string;
+  isRequired?: boolean;
+  isFullLenth?: boolean;
+  onChangeText: (value: string) => void;
+  dropdownData?: DropdownDataKeyType;
+  width?: string;
+  keyboardType: KeyboardTypeOptions;
+  zIndex?: number;
+  onSelect: (selectedItem: DropdownDataType) => void;
+};
 
 export function FormInput(props: Props) {
   const IsLandscape = useIsLandscape();
@@ -65,11 +54,11 @@ export function FormInput(props: Props) {
           data={props.dropdownData}
           onSelect={props.onSelect}
           zIndex={props.zIndex}
-          value={props.value}
+          value={props.value as DropdownDataType}
         />
       ) : (
         <TextInput
-          value={props.value}
+          value={props.value as string}
           style={styles.input}
           multiline={false}
           numberOfLines={1}
